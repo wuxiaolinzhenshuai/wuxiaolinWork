@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	 PUBLIC "-//mybatis.org//DTDMapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.dao.UserDao">
+		<select id="getList" resultType="com.example.demo.vo.User">
+			SELECT * FROM zhou_jichu where cname like '%${mohu}%' order by cying
+		</select>
+		<insert id="add">
+			insert into zhou_jichu(cname,cbie,czuozhe,cying) values(#{cname},#{cbie},#{czuozhe},#{cying})
+		</insert>
+		<select id="getUser" resultType="com.example.demo.vo.User">
+			select * from zhou_jichu where cid=#{cid}
+		</select>
+		<update id="update">
+			update zhou_jichu set cname=#{cname},cbie=#{cbie},czuozhe=#{czuozhe},cying=#{cying} where cid=#{cid}
+		</update>
+		<delete id="del">
+			DELETE FROM zhou_jichu WHERE cid=#{cid}
+		</delete>
+		<select id="getlogin" resultType="com.example.demo.vo.User">
+			select * from zhou_user where uname=#{uname} and upassword=#{upassword}
+		</select>
+		<select id="getwlist" resultType="com.example.demo.vo.User">
+			SELECT * FROM zhou_jichu
+		</select>
+</mapper>
